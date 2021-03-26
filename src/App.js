@@ -23,7 +23,7 @@ function App() {
                     <div className="links box-links">
                       <div className="d-flex">
                         <div>
-                          <img src={item.icon} alt="github" />
+                          <img src={item.icon} alt="Link Icons" />
                         </div>
                         <div className="p-2 ml-2 mt-1">{item.title}</div>
                       </div>
