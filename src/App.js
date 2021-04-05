@@ -2,40 +2,94 @@ import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Row, Col } from "react-bootstrap";
-import { SiteData } from "./SiteData";
+
+import { ThemeProvider } from "styled-components";
+import { useDarkMode } from "./components/useDarkMode";
+import { GlobalStyles } from "./components/GlobalStyle";
+import { lightTheme, darkTheme } from "./components/Themes";
+import Toggle from "./components/Toggler";
 
 function App() {
+  const [theme, themeToggler] = useDarkMode();
+
+  const themeMode = theme === "light" ? lightTheme : darkTheme;
   return (
-    <Container className="mt-3 mt-lg-5">
-      <Row>
-        <Col lg={{ span: 4, offset: 4 }} md={{ span: 6, offset: 3 }}>
-          <div className="d-flex flex-column text-center mb-5">
-            <div className="mb-3 mt-3 avatar"></div>
-            <h1 className="h5 mb-3">@rockysegarra</h1>
-            <div className="mb-3 text-center">
-              This is a quick website built in React.<br></br>All my official
-              links are here!
-            </div>
-            {SiteData.map((item, index) => {
-              return (
-                <a key={index} href={item.path}>
+    <ThemeProvider theme={themeMode}>
+      <>
+        <GlobalStyles />
+        <div className="d-flex flex-row-reverse">
+          <div className="p-3">
+            <Toggle theme={theme} toggleTheme={themeToggler} />
+          </div>
+        </div>
+        <Container className="mt-1 mt-lg-5">
+          <Row>
+            <Col lg={{ span: 4, offset: 4 }} md={{ span: 6, offset: 3 }}>
+              <div className="d-flex flex-column text-center mb-5">
+                <div className="mb-3 mt-3 avatar"></div>
+                <h1 className="h5 mb-3">@rockysegarra</h1>
+                <div className="mb-3 text-center">
+                  This is a quick website built in React.<br></br>All my
+                  official links are here!
+                </div>
+                <a href="/">
                   <div className="box mb-3">
                     <div className="links box-links">
                       <div className="d-flex">
-                        <div>
-                          <img src={item.icon} alt="Link Icons" />
+                        <div className="icon-img link-media-1">
+                          {/* <img src={item.icon} alt="Link Icons" /> */}
                         </div>
-                        <div className="p-2 ml-2 mt-1">{item.title}</div>
+                        <div className="p-2 ml-2 mt-1">Github Profile</div>
                       </div>
                     </div>
                   </div>
                 </a>
-              );
-            })}
-          </div>
-        </Col>
-      </Row>
-    </Container>
+                <a href="/">
+                  <div className="box mb-3">
+                    <div className="links box-links">
+                      <div className="d-flex">
+                        <div className="icon-img link-media-2">
+                          {/* <img src={item.icon} alt="Link Icons" /> */}
+                        </div>
+                        <div className="p-2 ml-2 mt-1">I'm on Twitter</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="/">
+                  <div className="box mb-3">
+                    <div className="links box-links">
+                      <div className="d-flex">
+                        <div className="icon-img link-media-3">
+                          {/* <img src={item.icon} alt="Link Icons" /> */}
+                        </div>
+                        <div className="p-2 ml-2 mt-1">Work on Dribbble</div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                {/*{SiteData.map((item, index) => {*/}
+                {/*  return (*/}
+                {/*    <a key={index} href={item.path}>*/}
+                {/*      <div className="box mb-3">*/}
+                {/*        <div className="links box-links">*/}
+                {/*          <div className="d-flex">*/}
+                {/*            <div className="icon-img">*/}
+                {/*              /!* <img src={item.icon} alt="Link Icons" /> *!/*/}
+                {/*            </div>*/}
+                {/*            <div className="p-2 ml-2 mt-1">{item.title}</div>*/}
+                {/*          </div>*/}
+                {/*        </div>*/}
+                {/*      </div>*/}
+                {/*    </a>*/}
+                {/*  );*/}
+                {/*})}*/}
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </>
+    </ThemeProvider>
   );
 }
 
