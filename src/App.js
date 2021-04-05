@@ -32,7 +32,7 @@ function App() {
                   This is a quick website built in React.<br></br>All my
                   official links are here!
                 </div>
-                <a href="/">
+                <a href="https://github.com/rockysegarra">
                   <div className="box mb-3">
                     <div className="links box-links">
                       <div className="d-flex">
@@ -44,7 +44,7 @@ function App() {
                     </div>
                   </div>
                 </a>
-                <a href="/">
+                <a href="https://twitter.com/rockysegarra">
                   <div className="box mb-3">
                     <div className="links box-links">
                       <div className="d-flex">
@@ -56,7 +56,7 @@ function App() {
                     </div>
                   </div>
                 </a>
-                <a href="/">
+                <a href="https://dribbble.com/rockysegarra">
                   <div className="box mb-3">
                     <div className="links box-links">
                       <div className="d-flex">
